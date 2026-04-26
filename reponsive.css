@@ -1,46 +1,64 @@
-@media (max-width:1400px){
-    .dad > img{
-    width: 40%;
-    height: 100%;
-    border-top-right-radius:550px ;
-    border-bottom-right-radius: 550px;
-    position: fixed;
-    border-right: 10px double #787e7d;;
+@media (max-width: 1400px) {
+    /* 1. Hình ảnh: Chuyển từ fixed sang sticky hoặc absolute để tránh đè lên chữ */
+    .dad > img {
+        width: 40%;
+        height: auto; /* Để auto giúp ảnh không bị méo */
+        max-height: 100vh;
+        border-top-right-radius: 550px;
+        border-bottom-right-radius: 550px;
+        position: relative; /* Thay vì fixed để nó trôi theo nội dung */
+        border-right: 10px double #787e7d;
+        object-fit: cover;
     }
-    .home-content > h1, .home-content>h3,.page1{
-        font-size: 4rem;
-        margin-right: -80px;
+
+    /* 2. Font chữ: Sử dụng đơn vị vw (viewport width) để tự co giãn theo độ rộng màn hình */
+    .home-content > h1, 
+    .home-content > h3, 
+    .page1 {
+        font-size: clamp(2rem, 5vw, 4rem); /* Co giãn từ 2rem đến 4rem tùy màn hình */
+        margin-right: 0; /* Hạn chế dùng margin âm quá lớn dễ gây mất chữ */
+        line-height: 1.2;
     }
-    .home-content{
-        margin-top: -10rem;
+
+    .home-content {
+        margin-top: 2rem; /* Tránh dùng số âm quá lớn như -10rem */
+        padding: 0 20px;
     }
-    .head,.midterm,.last_right,.last_left{
-        font-size: 2.5rem;
-        margin-left: -250px;
+
+    /* 3. Các mục nội dung: Sử dụng Flexbox hoặc căn lề linh hoạt */
+    .head, .midterm, .last_right, .last_left {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        margin-left: 0; /* Đưa về 0 để tránh đẩy ra ngoài vùng nhìn thấy */
+        text-align: center; /* Căn giữa để đẹp hơn trên màn hình nhỏ */
     }
-    .last_right,.last_left{
-        font-size: 2.5rem;
-        margin-top: -200px;
+
+    .last_right, .last_left {
+        margin-top: 2rem;
     }
-    .icon{
-        position: relative;
-        left: 1290px;
-        top: 1370px;
+
+    /* 4. Các icon và shape: Tránh dùng position: relative với giá trị px quá lớn (1290px) */
+    .icon {
+        position: fixed;
+        right: 20px; /* Cố định vào góc phải màn hình */
+        bottom: 20px;
+        left: auto;
+        top: auto;
     }
-    .hobby{
-        margin-left: -200px !important;
-        margin-bottom: -100px !important;
-    }
-    .scroll-up{
-        margin-left: -100PX !important;
-        margin-top: -80px !important;
-    }
+
     #shape {
         position: relative;
-        left: 900px;
-        top: 615px;
-        height: 280px;
-        width: 190px;
+        left: 0;
+        top: 0;
+        margin: 20px auto; /* Tự động căn giữa */
+        height: auto;
+        width: 80%; /* Chiếm 80% chiều rộng cha */
+        max-width: 190px;
+    }
+
+    /* 5. Hobby và Scroll: Xử lý lại khoảng cách */
+    .hobby, .scroll-up {
+        margin: 10px 0 !important;
+        text-align: center;
     }
 }
 
