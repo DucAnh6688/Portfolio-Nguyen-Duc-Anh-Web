@@ -139,7 +139,7 @@ span{
     }
     41%,
     60%{
-        content:"UI/UX Designer" ;
+        content:"Economics" ;
     }
     61%,
     80%{
@@ -147,7 +147,7 @@ span{
     }
     81%,
     100%{
-        content: "Software Tester";
+        content: "Data Analysis";
     }
 }
 @keyframes typing{
